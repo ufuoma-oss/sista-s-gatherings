@@ -5,60 +5,55 @@ const services = [
   {
     icon: CalendarDays,
     title: "Event Booking",
-    description: "Easy booking process for your corporate events, weddings, birthdays, and family gatherings",
+    description: "Easy booking for corporate events, weddings, birthdays, and family gatherings",
   },
   {
     icon: Users,
     title: "Private Events",
-    description: "Intimate gatherings and private parties with customized menus tailored to your preferences",
+    description: "Intimate gatherings with customized menus tailored to your preferences",
   },
   {
     icon: UtensilsCrossed,
     title: "Custom Menus",
-    description: "Personalized menu options to match your event theme and dietary requirements",
+    description: "Personalized options to match your event theme and dietary requirements",
   },
   {
     icon: Truck,
     title: "On-Site Service",
-    description: "We bring the food to your location with professional setup and friendly service",
+    description: "Professional setup and friendly service at your location",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-24 bg-secondary/50" id="services">
+    <section className="py-28 bg-secondary/30" id="services">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-[0.2em] text-primary font-body font-medium mb-3">
-            Our Service
+          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-medium mb-4">
+            What We Do
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
-            What We Focus On
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+            Our Services
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="bg-card rounded-lg p-8 text-center shadow-sm hover:shadow-md transition-shadow"
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="bg-background border border-border p-8 hover:border-primary/30 transition-colors group"
             >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                <service.icon className="w-6 h-6 text-primary" />
-              </div>
-              <div className="font-display text-2xl font-bold text-primary/30 mb-3">
-                {i + 1}
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+              <service.icon className="w-5 h-5 text-primary mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="font-display text-base font-semibold text-foreground mb-3 tracking-tight">
                 {service.title}
               </h3>
               <p className="font-body text-sm text-muted-foreground leading-relaxed">
