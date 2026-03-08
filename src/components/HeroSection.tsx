@@ -58,19 +58,6 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Right: Rotating Image */}
-          <motion.div
-            className="flex-1 flex items-center justify-center overflow-hidden"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <img
-              src={heroImage}
-              alt="Delicious food platter"
-              className="w-[350px] md:w-[450px] lg:w-[550px] object-contain animate-[spin_50s_linear_infinite]"
-            />
-          </motion.div>
         </div>
       </div>
     </section>
