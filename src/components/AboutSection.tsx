@@ -16,7 +16,7 @@ const AboutSection = () => {
             <img
               src={aboutImage}
               alt="The sisters behind Sista's Cuisine"
-              className="w-full aspect-[4/5] object-cover rounded-2xl"
+              className="w-full h-auto rounded-2xl"
             />
           </motion.div>
 
