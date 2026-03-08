@@ -11,36 +11,12 @@ import foodDrinks from "@/assets/food-drinks.png";
 import foodAddons from "@/assets/food-addons.png";
 
 export const menuData = {
-  protein: {
-    label: "Protein",
-    items: ["Sista's Chicken", "Sista's Carne Asada"],
-    image: foodSteak,
-  },
-  vegan: {
-    label: "Vegan",
-    items: ["Sista's Jack Fruit", "Sista's Mushroom", "Sista's Walnut Meat"],
-    image: foodJackfruit,
-  },
-  combos: {
-    label: "Combo Plate",
-    items: ["Tacos, Rice, Beans & a Drink", "Quesadilla, Rice, Beans & a Drink"],
-    image: foodCombo,
-  },
-  drinks: {
-    label: "Drinks",
-    items: ["Soda", "Water", "Sista's Koolaid"],
-    image: foodDrinks,
-  },
-  addons: {
-    label: "Add Ons",
-    items: ["Blue Taki", "Red Taki", "Hot Puffs", "Sour Cream", "Guac Sauce", "Extra Cheese"],
-    image: foodAddons,
-  },
-  sides: {
-    label: "Sides",
-    items: ["Sista's Rice", "Sista's Refried Beans"],
-    image: foodTacos,
-  },
+  protein: { label: "Protein", items: ["Sista's Chicken", "Sista's Carne Asada"], image: foodSteak },
+  vegan: { label: "Vegan", items: ["Sista's Jack Fruit", "Sista's Mushroom", "Sista's Walnut Meat"], image: foodJackfruit },
+  combos: { label: "Combo Plate", items: ["Tacos, Rice, Beans & a Drink", "Quesadilla, Rice, Beans & a Drink"], image: foodCombo },
+  drinks: { label: "Drinks", items: ["Soda", "Water", "Sista's Koolaid"], image: foodDrinks },
+  addons: { label: "Add Ons", items: ["Blue Taki", "Red Taki", "Hot Puffs", "Sour Cream", "Guac Sauce", "Extra Cheese"], image: foodAddons },
+  sides: { label: "Sides", items: ["Sista's Rice", "Sista's Refried Beans"], image: foodTacos },
 };
 
 const MenuSection = () => {
@@ -48,19 +24,18 @@ const MenuSection = () => {
   const categories = Object.values(menuData);
 
   return (
-    <section className="py-32 bg-background" id="menu">
+    <section className="py-24 md:py-32 bg-background" id="menu">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <div className="h-[3px] w-16 bg-accent mx-auto mb-8" />
-          <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
+          <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             The Menu
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
             What We Serve
           </h2>
         </motion.div>
@@ -73,26 +48,26 @@ const MenuSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="group bg-card rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-500"
+              className="bg-card rounded-2xl overflow-hidden"
             >
               <div className="aspect-[16/11] overflow-hidden">
                 <img
                   src={cat.image}
                   alt={cat.label}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-7">
-                <h3 className="font-display text-lg font-bold text-foreground mb-5">
+              <div className="p-6">
+                <h3 className="font-display text-lg text-foreground mb-4">
                   {cat.label}
                 </h3>
                 <ul className="space-y-0">
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="font-body text-[14px] text-muted-foreground py-2.5 border-b border-border/50 last:border-0 flex items-center gap-3"
+                      className="font-body text-sm text-muted-foreground py-2 border-b border-border/50 last:border-0 flex items-center gap-3"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -106,12 +81,12 @@ const MenuSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-14"
         >
           <Button
             size="lg"
             onClick={() => navigate("/book")}
-            className="px-10 py-7 font-body text-[13px] font-semibold tracking-[0.15em] uppercase rounded-full"
+            className="px-8 py-6 font-body text-sm font-medium tracking-wide rounded-full"
           >
             Book Your Event
             <ArrowRight className="w-4 h-4 ml-2" />
