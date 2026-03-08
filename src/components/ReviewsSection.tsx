@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const reviews = [
   {
@@ -36,19 +36,18 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section className="py-32 bg-card">
+    <section className="py-24 md:py-32 bg-card">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
-          <div className="h-[3px] w-16 bg-accent mx-auto mb-8" />
-          <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
+          <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             Testimonials
           </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
             What Clients Say
           </h2>
         </motion.div>
@@ -61,22 +60,21 @@ const ReviewsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className={`bg-background rounded-2xl p-8 lg:p-10 relative ${i === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}
+              className="bg-background rounded-2xl p-7"
             >
-              <Quote className="w-8 h-8 text-accent/20 mb-6" />
-              <div className="flex gap-1 mb-5">
+              <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: review.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-accent text-accent" />
+                  <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="font-body text-[15px] text-foreground leading-[1.8] mb-8">
+              <p className="font-body text-sm text-foreground leading-[1.7] mb-6">
                 "{review.text}"
               </p>
-              <div className="border-t border-border pt-5">
-                <p className="font-display text-base font-bold text-foreground">
+              <div className="border-t border-border pt-4">
+                <p className="font-body text-sm font-medium text-foreground">
                   {review.name}
                 </p>
-                <p className="font-body text-[13px] text-muted-foreground mt-1">
+                <p className="font-body text-xs text-muted-foreground mt-0.5">
                   {review.event}
                 </p>
               </div>

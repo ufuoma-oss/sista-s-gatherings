@@ -17,41 +17,40 @@ const VideoStoriesSection = () => {
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
     scrollRef.current.scrollBy({
-      left: dir === "left" ? -340 : 340,
+      left: dir === "left" ? -300 : 300,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="py-32 bg-foreground" id="stories">
+    <section className="py-24 md:py-32 bg-foreground overflow-hidden" id="stories">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-end justify-between mb-14"
+          className="flex items-end justify-between mb-12"
         >
           <div>
-            <div className="h-[3px] w-16 bg-accent mb-8" />
-            <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
+            <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
               Behind the Scenes
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-background leading-[1.1]">
+            <h2 className="font-display text-3xl md:text-4xl font-normal text-background leading-[1.15]">
               Our Stories
             </h2>
           </div>
-          <div className="hidden md:flex gap-3">
+          <div className="hidden md:flex gap-2">
             <button
               onClick={() => scroll("left")}
-              className="w-12 h-12 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
             >
-              <ChevronLeft className="w-5 h-5 text-background" />
+              <ChevronLeft className="w-4 h-4 text-background" />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-12 h-12 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
+              className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
             >
-              <ChevronRight className="w-5 h-5 text-background" />
+              <ChevronRight className="w-4 h-4 text-background" />
             </button>
           </div>
         </motion.div>
@@ -59,27 +58,23 @@ const VideoStoriesSection = () => {
 
       <div
         ref={scrollRef}
-        className="flex gap-5 overflow-x-auto px-6 lg:px-12 pb-4"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        className="flex gap-4 overflow-x-auto px-6 lg:px-12 pb-4 snap-x snap-mandatory"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
       >
-        <div className="flex-shrink-0 w-[calc((100vw-1400px)/2)] hidden 2xl:block" />
         {videos.map((url, i) => (
-          <motion.div
+          <div
             key={i}
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            className="flex-shrink-0 w-72 aspect-[9/16] rounded-2xl overflow-hidden bg-background/5"
+            className="flex-shrink-0 w-64 md:w-72 aspect-[9/16] rounded-xl overflow-hidden bg-background/5 snap-start"
           >
             <iframe
               src={url}
               className="w-full h-full"
-              allow="autoplay; fullscreen; encrypted-media; picture-in-picture; clipboard-write; gyroscope"
+              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
               allowFullScreen
               title={`Story ${i + 1}`}
+              loading="lazy"
             />
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
