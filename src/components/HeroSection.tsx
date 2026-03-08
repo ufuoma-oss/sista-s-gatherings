@@ -20,7 +20,7 @@ const HeroSection = () => {
               <br />
               Every Gathering
             </h1>
-            <p className="font-body text-base md:text-lg text-muted-foreground max-w-lg mb-12 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-foreground font-semibold max-w-lg mb-12 leading-relaxed">
               Fresh, homestyle meals prepared for parties, meetings, and special
               events. We handle the cooking so you can enjoy the moment.
             </p>
