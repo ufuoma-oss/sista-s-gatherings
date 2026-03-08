@@ -44,7 +44,7 @@ const AboutSection = () => {
                 signature tacos to full catering spreads, each meal is made fresh
                 and designed to delight your guests.
               </p>
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 Whether it's a family gathering, a party, or a corporate event,
                 we focus on tasty food, great presentation, and a stress-free
                 experience. Every bite is crafted to make your event memorable.
