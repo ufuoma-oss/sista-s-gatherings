@@ -23,10 +23,7 @@ export const menuData = {
   },
   combos: {
     label: "Combo Plate",
-    items: [
-      "Tacos, Rice, Beans & a Drink",
-      "Quesadilla, Rice, Beans & a Drink",
-    ],
+    items: ["Tacos, Rice, Beans & a Drink", "Quesadilla, Rice, Beans & a Drink"],
     image: foodCombo,
   },
   drinks: {
@@ -51,23 +48,24 @@ const MenuSection = () => {
   const categories = Object.values(menuData);
 
   return (
-    <section className="py-28 bg-background" id="menu">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-background" id="menu">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-medium mb-4">
-            Our Menu
+          <div className="h-[3px] w-16 bg-accent mx-auto mb-8" />
+          <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
+            The Menu
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
             What We Serve
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.label}
@@ -75,25 +73,26 @@ const MenuSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="border border-border bg-background group hover:border-primary/30 transition-colors overflow-hidden"
+              className="group bg-card rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-500"
             >
-              <div className="aspect-[16/10] overflow-hidden bg-secondary/30">
+              <div className="aspect-[16/11] overflow-hidden">
                 <img
                   src={cat.image}
                   alt={cat.label}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="font-display text-sm font-semibold text-primary mb-4 uppercase tracking-widest">
+              <div className="p-7">
+                <h3 className="font-display text-lg font-bold text-foreground mb-5">
                   {cat.label}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-0">
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="font-body text-sm text-foreground py-1.5 border-b border-border/40 last:border-0"
+                      className="font-body text-[14px] text-muted-foreground py-2.5 border-b border-border/50 last:border-0 flex items-center gap-3"
                     >
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -109,7 +108,11 @@ const MenuSection = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <Button size="lg" onClick={() => navigate("/book")} className="font-display text-sm tracking-wide uppercase">
+          <Button
+            size="lg"
+            onClick={() => navigate("/book")}
+            className="px-10 py-7 font-body text-[13px] font-semibold tracking-[0.15em] uppercase rounded-full"
+          >
             Book Your Event
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>

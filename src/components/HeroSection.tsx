@@ -7,50 +7,68 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex items-center bg-background pt-16">
-      <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center">
+    <section className="relative min-h-[100vh] flex items-center bg-card pt-20">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="font-body text-sm uppercase tracking-[0.25em] text-primary font-medium mb-6">
-              Catering & Events
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: 80 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="h-[3px] bg-accent mb-8"
+            />
+            <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-6">
+              Catering & Private Events — Los Angeles
             </p>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-8 tracking-tight">
-              Good Food for
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-bold text-foreground leading-[1.05] mb-8">
+              Elevated
               <br />
-              <span className="text-primary">Every Gathering</span>
+              Homestyle
+              <br />
+              <em className="text-accent font-medium">Cuisine.</em>
             </h1>
-            <p className="font-body text-lg md:text-xl text-muted-foreground max-w-lg mx-auto mb-12 leading-relaxed font-light">
-              Fresh, homestyle meals prepared for parties, meetings, and special
-              events. We handle the cooking so you can enjoy the moment.
+            <p className="font-body text-base md:text-lg text-muted-foreground max-w-md mb-14 leading-relaxed font-light">
+              Fresh, bold flavors crafted for weddings, corporate events, and
+              private gatherings. Two sisters. One unforgettable experience.
             </p>
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start gap-4">
               <Button
                 size="lg"
-                className="px-8 py-6 text-sm font-display tracking-wide uppercase"
+                className="px-10 py-7 text-[13px] font-body font-semibold tracking-[0.15em] uppercase rounded-full"
                 onClick={() => navigate("/book")}
               >
-                Book Us Now
+                Book Your Event
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="px-8 py-6 text-sm font-display tracking-wide uppercase"
+                className="px-10 py-7 text-[13px] font-body font-semibold tracking-[0.15em] uppercase rounded-full border-foreground/20 hover:bg-foreground/5"
                 onClick={() => document.getElementById("menu")?.scrollIntoView({ behavior: "smooth" })}
               >
-                View Menu
+                Explore Menu
               </Button>
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Subtle decorative element */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      {/* Decorative accent */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-accent/[0.04] to-transparent hidden lg:block" />
+      <div className="absolute bottom-12 right-12 hidden lg:block">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="font-display text-[10rem] font-bold text-foreground/[0.03] leading-none select-none"
+        >
+          SC
+        </motion.p>
+      </div>
     </section>
   );
 };

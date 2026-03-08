@@ -4,59 +4,76 @@ import { CalendarDays, Users, UtensilsCrossed, Truck } from "lucide-react";
 const services = [
   {
     icon: CalendarDays,
+    number: "01",
     title: "Event Booking",
-    description: "Easy booking for corporate events, weddings, birthdays, and family gatherings",
+    description: "Seamless booking for corporate events, weddings, birthdays, and intimate gatherings.",
   },
   {
     icon: Users,
+    number: "02",
     title: "Private Events",
-    description: "Intimate gatherings with customized menus tailored to your preferences",
+    description: "Exclusive private dining experiences with fully customized menus and personal service.",
   },
   {
     icon: UtensilsCrossed,
+    number: "03",
     title: "Custom Menus",
-    description: "Personalized options to match your event theme and dietary requirements",
+    description: "Tailored menu design to match your vision, dietary needs, and event theme perfectly.",
   },
   {
     icon: Truck,
-    title: "On-Site Service",
-    description: "Professional setup and friendly service at your location",
+    number: "04",
+    title: "Full-Service Catering",
+    description: "Professional on-site setup, service, and cleanup — we handle everything.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section className="py-28 bg-secondary/30" id="services">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-card" id="services">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-medium mb-4">
-            What We Do
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            Our Services
-          </h2>
+          <div className="h-[3px] w-16 bg-accent mb-8" />
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
+                What We Offer
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
+                Our Services
+              </h2>
+            </div>
+            <p className="font-body text-muted-foreground text-[15px] max-w-md leading-relaxed">
+              From concept to cleanup, we deliver an end-to-end catering experience that exceeds expectations.
+            </p>
+          </div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-px bg-border">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="bg-background border border-border p-8 hover:border-primary/30 transition-colors group"
+              transition={{ delay: i * 0.08, duration: 0.6 }}
+              className="bg-card p-10 lg:p-14 group hover:bg-background transition-colors duration-300"
             >
-              <service.icon className="w-5 h-5 text-primary mb-6 group-hover:scale-110 transition-transform" />
-              <h3 className="font-display text-base font-semibold text-foreground mb-3 tracking-tight">
+              <div className="flex items-start justify-between mb-8">
+                <service.icon className="w-7 h-7 text-accent" />
+                <span className="font-display text-4xl font-bold text-foreground/[0.08]">
+                  {service.number}
+                </span>
+              </div>
+              <h3 className="font-display text-xl font-bold text-foreground mb-4">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              <p className="font-body text-[15px] text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
