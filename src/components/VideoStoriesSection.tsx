@@ -16,42 +16,42 @@ const VideoStoriesSection = () => {
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
-    const amount = 320;
     scrollRef.current.scrollBy({
-      left: dir === "left" ? -amount : amount,
+      left: dir === "left" ? -340 : 340,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="py-28 bg-charcoal" id="stories">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-foreground" id="stories">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex items-end justify-between mb-12"
+          className="flex items-end justify-between mb-14"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-medium mb-4">
+            <div className="h-[3px] w-16 bg-accent mb-8" />
+            <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
               Behind the Scenes
             </p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-background leading-[1.1]">
               Our Stories
             </h2>
           </div>
-          <div className="hidden md:flex gap-2">
+          <div className="hidden md:flex gap-3">
             <button
               onClick={() => scroll("left")}
-              className="w-10 h-10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+              className="w-12 h-12 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
             >
-              <ChevronLeft className="w-4 h-4 text-primary-foreground" />
+              <ChevronLeft className="w-5 h-5 text-background" />
             </button>
             <button
               onClick={() => scroll("right")}
-              className="w-10 h-10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+              className="w-12 h-12 rounded-full border border-background/20 flex items-center justify-center hover:bg-background/10 transition-colors"
             >
-              <ChevronRight className="w-4 h-4 text-primary-foreground" />
+              <ChevronRight className="w-5 h-5 text-background" />
             </button>
           </div>
         </motion.div>
@@ -59,10 +59,10 @@ const VideoStoriesSection = () => {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scrollbar-hide px-6 pb-4"
+        className="flex gap-5 overflow-x-auto px-6 lg:px-12 pb-4"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        <div className="flex-shrink-0 w-[calc((100vw-1400px)/2+2rem)] hidden 2xl:block" />
+        <div className="flex-shrink-0 w-[calc((100vw-1400px)/2)] hidden 2xl:block" />
         {videos.map((url, i) => (
           <motion.div
             key={i}
@@ -70,7 +70,7 @@ const VideoStoriesSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="flex-shrink-0 w-72 aspect-[9/16] bg-charcoal border border-primary-foreground/10 overflow-hidden"
+            className="flex-shrink-0 w-72 aspect-[9/16] rounded-2xl overflow-hidden bg-background/5"
           >
             <iframe
               src={url}

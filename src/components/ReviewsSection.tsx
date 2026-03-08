@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const reviews = [
   {
@@ -22,7 +22,7 @@ const reviews = [
   },
   {
     name: "David R.",
-    event: "Family Gathering",
+    event: "Family Reunion",
     text: "I'm vegan and was worried about options. The jackfruit tacos blew my mind — better than any restaurant. The sisters are so warm and genuine. Highly recommend!",
     rating: 5,
   },
@@ -36,19 +36,20 @@ const reviews = [
 
 const ReviewsSection = () => {
   return (
-    <section className="py-28 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-card">
+      <div className="container mx-auto px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-primary font-body font-medium mb-4">
+          <div className="h-[3px] w-16 bg-accent mx-auto mb-8" />
+          <p className="font-body text-[13px] uppercase tracking-[0.3em] text-accent font-semibold mb-5">
             Testimonials
           </p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground tracking-tight">
-            What Our Clients Say
+          <h2 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
+            What Clients Say
           </h2>
         </motion.div>
 
@@ -60,21 +61,22 @@ const ReviewsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className={`bg-background border border-border p-8 ${i === 3 ? "lg:col-span-2" : ""}`}
+              className={`bg-background rounded-2xl p-8 lg:p-10 relative ${i === 0 ? "md:col-span-2 lg:col-span-1" : ""}`}
             >
-              <div className="flex gap-0.5 mb-5">
+              <Quote className="w-8 h-8 text-accent/20 mb-6" />
+              <div className="flex gap-1 mb-5">
                 {Array.from({ length: review.rating }).map((_, j) => (
-                  <Star key={j} className="w-3.5 h-3.5 fill-gold text-gold" />
+                  <Star key={j} className="w-4 h-4 fill-accent text-accent" />
                 ))}
               </div>
-              <p className="font-body text-sm text-foreground leading-relaxed mb-6">
+              <p className="font-body text-[15px] text-foreground leading-[1.8] mb-8">
                 "{review.text}"
               </p>
-              <div>
-                <p className="font-display text-sm font-semibold text-foreground">
+              <div className="border-t border-border pt-5">
+                <p className="font-display text-base font-bold text-foreground">
                   {review.name}
                 </p>
-                <p className="font-body text-xs text-muted-foreground mt-0.5">
+                <p className="font-body text-[13px] text-muted-foreground mt-1">
                   {review.event}
                 </p>
               </div>
