@@ -33,18 +33,18 @@ const AboutSection = () => {
               Welcome to Sista's Cuisine
             </h2>
             <div className="space-y-5">
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 Founded by two sisters, we grew up cooking together and sharing
                 meals with family and friends. What started as a love for
                 creating food turned into a passion for bringing people together
                 through every dish we make.
               </p>
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 We bring flavor and care to every dish we serve. From our
                 signature tacos to full catering spreads, each meal is made fresh
                 and designed to delight your guests.
               </p>
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 Whether it's a family gathering, a party, or a corporate event,
                 we focus on tasty food, great presentation, and a stress-free
                 experience. Every bite is crafted to make your event memorable.
