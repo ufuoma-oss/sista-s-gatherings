@@ -24,7 +24,7 @@ const GallerySection = () => {
           <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             Our Food
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15]">
             Made with Love
           </h2>
         </motion.div>

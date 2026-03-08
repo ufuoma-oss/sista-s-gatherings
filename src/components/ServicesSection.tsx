@@ -41,7 +41,7 @@ const ServicesSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             What We Offer
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15]">
             Our Services
           </h2>
         </motion.div>
@@ -57,10 +57,10 @@ const ServicesSection = () => {
               className="bg-background rounded-2xl p-8 hover:border-primary/20 border border-transparent transition-colors"
             >
               <service.icon className="w-6 h-6 text-primary mb-5" />
-              <h3 className="font-display text-lg text-foreground mb-3">
+              <h3 className="font-display text-lg font-bold text-foreground mb-3">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-foreground font-semibold leading-relaxed">
+              <p className="font-body text-sm text-foreground leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

@@ -35,7 +35,7 @@ const MenuSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             The Menu
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15]">
             What We Serve
           </h2>
         </motion.div>
@@ -58,14 +58,14 @@ const MenuSection = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-display text-lg text-foreground mb-4">
+                <h3 className="font-display text-lg font-bold text-foreground mb-4">
                   {cat.label}
                 </h3>
                 <ul className="space-y-0">
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="font-body text-sm text-foreground font-semibold py-2 border-b border-border/50 last:border-0 flex items-center gap-3"
+                      className="font-body text-sm text-foreground py-2 border-b border-border/50 last:border-0 flex items-center gap-3"
                     >
                       <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                       {item}
