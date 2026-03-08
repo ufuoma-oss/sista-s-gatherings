@@ -4,18 +4,18 @@ import chef2 from "@/assets/chef-2.jpeg";
 
 const chefs = [
   {
-    name: "Chef Tiffany",
-    title: "Co-Founder & Head Chef",
+    name: "Chef Hayley",
+    title: "Co-Founder",
     image: chef1,
     description:
-      "With a passion for bold flavors and creative presentation, Chef Tiffany brings energy and innovation to every dish.",
+      "Hayley loves good food and making people smile. She puts heart into every plate she serves.",
   },
   {
-    name: "Chef Brianna",
-    title: "Co-Founder & Executive Chef",
+    name: "Chef Owens",
+    title: "Co-Founder",
     image: chef2,
     description:
-      "Classically trained with a soulful touch, Chef Brianna ensures every plate meets the highest standard of quality.",
+      "Owens keeps it real with bold flavors and honest cooking. If it tastes like home, she's done her job.",
   },
 ];
 
