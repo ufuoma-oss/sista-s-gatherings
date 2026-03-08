@@ -29,22 +29,22 @@ const AboutSection = () => {
             <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
               About Us
             </p>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground mb-8 leading-[1.15]">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground mb-8 leading-[1.15]">
               Welcome to Sista's Cuisine
             </h2>
             <div className="space-y-5">
-              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground leading-[1.8] text-[15px]">
                 Founded by two sisters, we grew up cooking together and sharing
                 meals with family and friends. What started as a love for
                 creating food turned into a passion for bringing people together
                 through every dish we make.
               </p>
-              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground leading-[1.8] text-[15px]">
                 We bring flavor and care to every dish we serve. From our
                 signature tacos to full catering spreads, each meal is made fresh
                 and designed to delight your guests.
               </p>
-              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground leading-[1.8] text-[15px]">
                 Whether it's a family gathering, a party, or a corporate event,
                 we focus on tasty food, great presentation, and a stress-free
                 experience. Every bite is crafted to make your event memorable.
@@ -53,19 +53,19 @@ const AboutSection = () => {
 
             <div className="flex gap-12 border-t border-border pt-8 mt-10">
               <div>
-                <span className="font-display text-4xl text-foreground">8+</span>
+                <span className="font-display text-4xl font-extrabold text-foreground">8+</span>
                 <p className="font-body text-xs text-muted-foreground mt-2 uppercase tracking-[0.15em] font-medium">
                   Years of Excellence
                 </p>
               </div>
               <div>
-                <span className="font-display text-4xl text-foreground">1K+</span>
+                <span className="font-display text-4xl font-extrabold text-foreground">1K+</span>
                 <p className="font-body text-xs text-muted-foreground mt-2 uppercase tracking-[0.15em] font-medium">
                   Events Catered
                 </p>
               </div>
               <div>
-                <span className="font-display text-4xl text-foreground">5★</span>
+                <span className="font-display text-4xl font-extrabold text-foreground">5★</span>
                 <p className="font-body text-xs text-muted-foreground mt-2 uppercase tracking-[0.15em] font-medium">
                   Client Rating
                 </p>

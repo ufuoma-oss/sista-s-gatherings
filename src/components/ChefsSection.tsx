@@ -33,7 +33,7 @@ const ChefsSection = () => {
           <p className="font-body text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
             The Founders
           </p>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-normal text-foreground leading-[1.15]">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-[1.15]">
             Meet Our Chefs
           </h2>
         </motion.div>
@@ -55,13 +55,13 @@ const ChefsSection = () => {
                   className="w-full aspect-[3/4] object-cover object-top"
                 />
               </div>
-              <h3 className="font-display text-2xl text-foreground mb-1">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-1">
                 {chef.name}
               </h3>
               <p className="font-body text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">
                 {chef.title}
               </p>
-              <p className="font-body text-foreground font-semibold leading-relaxed text-[15px] max-w-sm mx-auto">
+              <p className="font-body text-foreground leading-relaxed text-[15px] max-w-sm mx-auto">
                 {chef.description}
               </p>
             </motion.div>

@@ -25,12 +25,12 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="font-display text-[2.75rem] md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6">
+            <h1 className="font-display text-[2.75rem] md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6">
               Good Food for
               <br />
               Every Gathering
             </h1>
-            <p className="font-body text-base md:text-lg text-white/90 font-semibold max-w-lg mb-12 leading-relaxed">
+            <p className="font-body text-base md:text-lg text-white/90 max-w-lg mb-12 leading-relaxed">
               Fresh, homestyle meals prepared for parties, meetings, and special
               events. We handle the cooking so you can enjoy the moment.
             </p>

@@ -67,7 +67,7 @@ const BookingPage = () => {
             <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
               <PartyPopper className="w-10 h-10 text-accent" />
             </div>
-            <h2 className="font-display text-3xl font-bold text-foreground mb-3">
+            <h2 className="font-display text-3xl font-extrabold text-foreground mb-3">
               Booking Received!
             </h2>
             <p className="font-body text-muted-foreground mb-2">
@@ -133,7 +133,7 @@ const BookingPage = () => {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <CalendarDays className="w-6 h-6 text-primary" />
                   </div>
-                  <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-display text-3xl font-extrabold text-foreground mb-2">
                     Pick a Date
                   </h2>
                   <p className="font-body text-muted-foreground mb-8">
@@ -162,7 +162,7 @@ const BookingPage = () => {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <PartyPopper className="w-6 h-6 text-primary" />
                   </div>
-                  <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-display text-3xl font-extrabold text-foreground mb-2">
                     What's the Occasion?
                   </h2>
                   <p className="font-body text-muted-foreground mb-8">
@@ -193,7 +193,7 @@ const BookingPage = () => {
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Users className="w-6 h-6 text-primary" />
                   </div>
-                  <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-display text-3xl font-extrabold text-foreground mb-2">
                     How Many Guests?
                   </h2>
                   <p className="font-body text-muted-foreground mb-8">
@@ -225,7 +225,7 @@ const BookingPage = () => {
                     <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                       <UtensilsCrossed className="w-6 h-6 text-primary" />
                     </div>
-                    <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+                    <h2 className="font-display text-3xl font-extrabold text-foreground mb-2">
                       Choose Your Menu
                     </h2>
                     <p className="font-body text-muted-foreground">
@@ -236,7 +236,7 @@ const BookingPage = () => {
                   <div className="space-y-6">
                     {Object.values(menuData).map((cat) => (
                       <div key={cat.label}>
-                        <h3 className="font-display text-sm uppercase tracking-widest text-primary font-semibold mb-3">
+                        <h3 className="font-display text-sm uppercase tracking-widest text-primary font-bold mb-3">
                           {cat.label}
                         </h3>
                         <div className="flex flex-wrap gap-2">
@@ -270,7 +270,7 @@ const BookingPage = () => {
               {/* Step 4: Contact Info */}
               {step === 4 && (
                 <div className="text-center">
-                  <h2 className="font-display text-3xl font-bold text-foreground mb-2">
+                  <h2 className="font-display text-3xl font-extrabold text-foreground mb-2">
                     Almost Done!
                   </h2>
                   <p className="font-body text-muted-foreground mb-8">
@@ -302,7 +302,7 @@ const BookingPage = () => {
 
                   {/* Summary */}
                   <div className="mt-8 bg-secondary/50 rounded-lg p-6 text-left max-w-sm mx-auto">
-                    <h4 className="font-display text-sm uppercase tracking-wider text-primary font-semibold mb-3">
+                    <h4 className="font-display text-sm uppercase tracking-wider text-primary font-bold mb-3">
                       Booking Summary
                     </h4>
                     <div className="space-y-2 font-body text-sm text-foreground">

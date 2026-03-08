@@ -30,7 +30,7 @@ const Navbar = () => {
             alt="Sista's Cuisine"
             className="w-12 h-12 object-contain"
           />
-          <span className="font-display text-xl text-foreground leading-tight">
+          <span className="font-display text-xl font-bold text-foreground leading-tight">
             Sista's Cuisine
           </span>
         </Link>
