@@ -33,7 +33,7 @@ const AboutSection = () => {
               Welcome to Sista's Cuisine
             </h2>
             <div className="space-y-5">
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 Founded by two sisters, we grew up cooking together and sharing
                 meals with family and friends. What started as a love for
                 creating food turned into a passion for bringing people together
