@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroBackground from "@/assets/hero-food.jpg";
+import heroBackground from "@/assets/hero-bg.jpeg";
 import heroImage from "@/assets/gallery-1.png";
 
 const HeroSection = () => {
