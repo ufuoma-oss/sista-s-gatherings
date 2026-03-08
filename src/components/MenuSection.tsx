@@ -9,6 +9,7 @@ import foodCombo from "@/assets/food-combo.png";
 import foodSteak from "@/assets/food-steak.png";
 import foodDrinks from "@/assets/food-drinks.png";
 import foodAddons from "@/assets/food-addons.png";
+import foodSides from "@/assets/food-sides.jpeg";
 
 export const menuData = {
   protein: { label: "Protein", items: ["Sista's Chicken", "Sista's Carne Asada"], image: foodSteak },
@@ -16,7 +17,7 @@ export const menuData = {
   combos: { label: "Combo Plate", items: ["Tacos, Rice, Beans & a Drink", "Quesadilla, Rice, Beans & a Drink"], image: foodCombo },
   drinks: { label: "Drinks", items: ["Soda", "Water", "Sista's Koolaid"], image: foodDrinks },
   addons: { label: "Add Ons", items: ["Blue Taki", "Red Taki", "Hot Puffs", "Sour Cream", "Guac Sauce", "Extra Cheese"], image: foodAddons },
-  sides: { label: "Sides", items: ["Sista's Rice", "Sista's Refried Beans"], image: foodTacos },
+  sides: { label: "Sides", items: ["Sista's Rice", "Sista's Refried Beans"], image: foodSides },
 };
 
 const MenuSection = () => {
