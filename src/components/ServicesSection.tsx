@@ -60,7 +60,7 @@ const ServicesSection = () => {
               <h3 className="font-display text-lg text-foreground mb-3">
                 {service.title}
               </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              <p className="font-body text-sm text-foreground font-semibold leading-relaxed">
                 {service.description}
               </p>
             </motion.div>

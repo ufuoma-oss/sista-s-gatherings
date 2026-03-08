@@ -39,7 +39,7 @@ const AboutSection = () => {
                 creating food turned into a passion for bringing people together
                 through every dish we make.
               </p>
-              <p className="font-body text-muted-foreground leading-[1.8] text-[15px]">
+              <p className="font-body text-foreground font-semibold leading-[1.8] text-[15px]">
                 We bring flavor and care to every dish we serve. From our
                 signature tacos to full catering spreads, each meal is made fresh
                 and designed to delight your guests.

@@ -61,7 +61,7 @@ const ChefsSection = () => {
               <p className="font-body text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-3">
                 {chef.title}
               </p>
-              <p className="font-body text-muted-foreground leading-relaxed text-[15px] max-w-sm mx-auto">
+              <p className="font-body text-foreground font-semibold leading-relaxed text-[15px] max-w-sm mx-auto">
                 {chef.description}
               </p>
             </motion.div>

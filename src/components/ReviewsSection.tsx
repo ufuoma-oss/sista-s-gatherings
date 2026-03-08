@@ -67,7 +67,7 @@ const ReviewsSection = () => {
                   <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="font-body text-sm text-foreground leading-[1.7] mb-6">
+              <p className="font-body text-sm text-foreground font-semibold leading-[1.7] mb-6">
                 "{review.text}"
               </p>
               <div className="border-t border-border pt-4">

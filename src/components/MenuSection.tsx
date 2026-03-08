@@ -65,7 +65,7 @@ const MenuSection = () => {
                   {cat.items.map((item) => (
                     <li
                       key={item}
-                      className="font-body text-sm text-muted-foreground py-2 border-b border-border/50 last:border-0 flex items-center gap-3"
+                      className="font-body text-sm text-foreground font-semibold py-2 border-b border-border/50 last:border-0 flex items-center gap-3"
                     >
                       <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                       {item}
