@@ -3,12 +3,21 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=D97EC707-0192-4415-8A9F-BDCE0FD026ED_hc3aue",
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=c2dbd83e6d3c491baf054d691d97b362_gzexzn",
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=66CED4FB-8BBB-4040-BBC4-0128A395E571_jiaclb",
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=0912275270aa4f88acdfcde6309a8d1e_cwgq6g",
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=9b4ec0ec85da4b4c99c7d0077963a5bb_syxnjr",
-  "https://player.cloudinary.com/embed/?cloud_name=dfbh21zqc&public_id=9b4ec0ec85da4b4c99c7d0077963a5bb_rbmdxu",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/D97EC707-0192-4415-8A9F-BDCE0FD026ED_hc3aue.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/c2dbd83e6d3c491baf054d691d97b362_gzexzn.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/66CED4FB-8BBB-4040-BBC4-0128A395E571_jiaclb.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/0912275270aa4f88acdfcde6309a8d1e_cwgq6g.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/9b4ec0ec85da4b4c99c7d0077963a5bb_syxnjr.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/9b4ec0ec85da4b4c99c7d0077963a5bb_rbmdxu.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/E8805784-4AC0-4538-8E56-925B7D40394D_miihk6.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/7360799D-7BE5-4978-98A1-79B83438F5B1_adfals.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/0CF8A392-40BC-4B43-9C5B-17FBE7086407_arln5d.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/0EBDCFCC-4949-4E07-ADF8-C2C809A29249_tybmir.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/DEE14654-3AC8-44FA-AEEC-ED14D28EE283_sbcx9i.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/11717097-4A61-4447-9C0C-158A9C4734A4_jqudom.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/7360799D-7BE5-4978-98A1-79B83438F5B1_ffugoh.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/0CF8A392-40BC-4B43-9C5B-17FBE7086407_wqfwbc.mp4",
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/B5DCD89D-362D-4336-B844-7A56A7F86BED_aymurt.mp4",
 ];
 
 const VideoStoriesSection = () => {
