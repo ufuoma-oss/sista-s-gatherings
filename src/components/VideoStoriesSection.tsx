@@ -75,13 +75,14 @@ const VideoStoriesSection = () => {
             key={i}
             className="flex-shrink-0 w-64 md:w-72 aspect-[9/16] rounded-xl overflow-hidden bg-background/5 snap-start"
           >
-            <iframe
+            <video
               src={url}
-              className="w-full h-full"
-              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-              allowFullScreen
+              className="w-full h-full object-cover"
+              playsInline
+              muted
+              loop
+              autoPlay
               title={`Story ${i + 1}`}
-              loading="lazy"
             />
           </div>
         ))}
