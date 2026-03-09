@@ -28,7 +28,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Sista's Cuisine"
-            className="w-16 h-16 object-contain"
+            className="w-24 h-24 object-contain -my-4"
           />
           <span className="font-display text-xl font-bold text-foreground leading-tight">
             Sista's Cuisine
