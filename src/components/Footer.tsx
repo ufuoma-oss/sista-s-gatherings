@@ -66,6 +66,7 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 font-body text-sm text-background/60 hover:text-primary transition-colors group"
             >
+              <TikTokIcon className="w-4 h-4 text-primary" />
               TikTok
               <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
