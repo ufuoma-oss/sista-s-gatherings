@@ -11,11 +11,11 @@ const chefs = [
       "Hayley loves good food and making people smile. She puts heart into every plate she serves.",
   },
   {
-    name: "Chef Owens",
+    name: "Chef Kash",
     title: "Co-Founder",
     image: chef2,
     description:
-      "Owens keeps it real with bold flavors and honest cooking. If it tastes like home, she's done her job.",
+      "Kash keeps it real with bold flavors and honest cooking. If it tastes like home, she's done her job.",
   },
 ];
 
