@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import chef1 from "@/assets/chef-1.png";
-import chef2 from "@/assets/chef-2.jpeg";
+import chef2 from "@/assets/chef-kash.png";
 
 const chefs = [
   {

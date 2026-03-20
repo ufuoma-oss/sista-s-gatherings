@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
+  "https://res.cloudinary.com/dfbh21zqc/video/upload/EBE44645-013B-4A5A-B174-B3562DE4E104_edt8ws.mp4",
   "https://res.cloudinary.com/dfbh21zqc/video/upload/D97EC707-0192-4415-8A9F-BDCE0FD026ED_hc3aue.mp4",
   "https://res.cloudinary.com/dfbh21zqc/video/upload/c2dbd83e6d3c491baf054d691d97b362_gzexzn.mp4",
   "https://res.cloudinary.com/dfbh21zqc/video/upload/66CED4FB-8BBB-4040-BBC4-0128A395E571_jiaclb.mp4",
