@@ -51,31 +51,39 @@ const BookingPage = () => {
     return false;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setIsSubmitting(true);
-    
-    const formData = new FormData();
-    formData.append("form-name", "booking");
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("date", date ? format(date, "MMMM do, yyyy") : "");
-    formData.append("eventType", eventType);
-    formData.append("guestCount", guestCount);
-    formData.append("menuItems", selectedItems.join(", "));
+
+    const encode = (data: Record<string, string>) => {
+      return Object.keys(data)
+        .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    };
+
+    const formData: Record<string, string> = {
+      "form-name": "booking",
+      name: name,
+      email: email,
+      phone: phone,
+      date: date ? format(date, "MMMM do, yyyy") : "",
+      eventType: eventType,
+      guestCount: guestCount,
+      menuItems: selectedItems.join(", "),
+    };
 
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        body: encode(formData),
       });
-      
-      // Netlify returns the page HTML on success (even 200 OK with redirect)
-      if (response.ok || response.status === 200) {
+
+      if (response.ok) {
         setSubmitted(true);
       } else {
-        throw new Error("Form submission failed");
+        console.error("Form submission failed:", response.status, response.statusText);
+        alert("There was an error submitting your booking. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -123,17 +131,6 @@ const BookingPage = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-background pt-16">
-        {/* Hidden form for Netlify */}
-        <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
-          <input type="text" name="name" />
-          <input type="email" name="email" />
-          <input type="tel" name="phone" />
-          <input type="text" name="date" />
-          <input type="text" name="eventType" />
-          <input type="text" name="guestCount" />
-          <input type="text" name="menuItems" />
-        </form>
-
         <div className="container mx-auto px-6 py-12 max-w-2xl">
           {/* Progress */}
           <div className="flex items-center justify-center gap-2 mb-12">
@@ -160,6 +157,26 @@ const BookingPage = () => {
               </div>
             ))}
           </div>
+
+          {/* Form wrapper for Netlify */}
+          <form 
+            name="booking" 
+            method="POST" 
+            data-netlify="true" 
+            netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            hidden
+          >
+            <input type="hidden" name="form-name" value="booking" />
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <input type="tel" name="phone" />
+            <input type="text" name="date" />
+            <input type="text" name="eventType" />
+            <input type="text" name="guestCount" />
+            <input type="text" name="menuItems" />
+            <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+          </form>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -214,6 +231,7 @@ const BookingPage = () => {
                     {eventTypes.map((type) => (
                       <button
                         key={type}
+                        type="button"
                         onClick={() => setEventType(type)}
                         className={cn(
                           "py-3 px-4 rounded-lg font-body text-sm border transition-all",
@@ -245,6 +263,7 @@ const BookingPage = () => {
                     {guestCounts.map((count) => (
                       <button
                         key={count}
+                        type="button"
                         onClick={() => setGuestCount(count)}
                         className={cn(
                           "py-3 px-6 rounded-lg font-body text-sm border transition-all",
@@ -285,6 +304,7 @@ const BookingPage = () => {
                           {cat.items.map((item) => (
                             <button
                               key={item}
+                              type="button"
                               onClick={() => toggleItem(item)}
                               className={cn(
                                 "py-2 px-4 rounded-full font-body text-sm border transition-all",
@@ -363,6 +383,7 @@ const BookingPage = () => {
           <div className="flex justify-between mt-12">
             <Button
               variant="ghost"
+              type="button"
               onClick={() => setStep((s) => s - 1)}
               disabled={step === 0}
               className="font-body"
@@ -374,6 +395,7 @@ const BookingPage = () => {
             {step < 4 ? (
               <Button
                 variant="hero"
+                type="button"
                 onClick={() => setStep((s) => s + 1)}
                 disabled={!canNext()}
               >
@@ -383,8 +405,10 @@ const BookingPage = () => {
             ) : (
               <Button
                 variant="hero"
-                onClick={handleSubmit}
+                type="submit"
+                form="booking-form"
                 disabled={!canNext() || isSubmitting}
+                onClick={handleSubmit}
               >
                 {isSubmitting ? (
                   <>
