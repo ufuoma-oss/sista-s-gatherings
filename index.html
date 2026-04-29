@@ -27,18 +27,17 @@
   </head>
 
   <body>
-    <!-- Hidden form for Netlify Forms detection -->
-    <form name="booking" data-netlify="true" netlify-honeypot="bot-field" style="display:none">
+    <!-- Netlify Forms - Hidden form for detection -->
+    <form name="booking" method="POST" data-netlify="true" style="display:none">
+      <input type="hidden" name="form-name" value="booking" />
       <input type="text" name="name" />
       <input type="email" name="email" />
-      <input type="tel" name="phone" />
+      <input type="text" name="phone" />
       <input type="text" name="date" />
       <input type="text" name="eventType" />
       <input type="text" name="guestCount" />
       <input type="text" name="menuItems" />
-      <p class="hidden">
-        <label>Don't fill this out: <input name="bot-field" /></label>
-      </p>
+      <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
     </form>
 
     <div id="root"></div>
