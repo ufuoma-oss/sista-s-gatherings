@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# Don't redirect the booking form
+[[redirects]]
+  from = "/booking.html"
+  to = "/booking.html"
+  status = 200
+
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

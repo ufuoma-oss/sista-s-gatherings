@@ -65,7 +65,7 @@ const BookingPage = () => {
     formData.append("menuItems", selectedItems.join(", "));
 
     try {
-      await fetch("/", {
+      await fetch("/booking.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
