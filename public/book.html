@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Event - Sista's Cuisine</title>
+  <meta name="description" content="Book Sista's Cuisine for your next event. Fresh, homestyle meals for parties, meetings, and special occasions.">
+  <link rel="icon" type="image/png" href="/logo.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .subtitle {
+      text-align: center;
+      color: #a1a1aa;
+      margin-bottom: 40px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #fafafa;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      background: #18181b;
+      color: #fff;
+      font-size: 16px;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #b45309;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #71717a;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .checkbox-item:has(input:checked) {
+      background: #b45309;
+      border-color: #b45309;
+    }
+    .checkbox-item input {
+      width: auto;
+      display: none;
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: #b45309;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #92400e; }
+    .btn:disabled { background: #52525b; cursor: not-allowed; }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #a1a1aa;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #fff; }
+    .success {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #166534;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 40px;
+    }
+    .nav {
+      background: #18181b;
+      padding: 16px 20px;
+      border-bottom: 1px solid #27272a;
+    }
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .nav-logo img { height: 36px; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="Sista's Cuisine">
+        <span>Sista's Cuisine</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Book Your Event</h1>
+    <p class="subtitle">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+    <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/book.html?success=true">
+      <input type="hidden" name="form-name" value="booking">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-group">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com">
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+      </div>
+
+      <div class="form-group">
+        <label for="date">Event Date *</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="eventType">Event Type *</label>
+        <select id="eventType" name="eventType" required>
+          <option value="">Select event type...</option>
+          <option value="Birthday Party">Birthday Party</option>
+          <option value="Wedding">Wedding</option>
+          <option value="Corporate Event">Corporate Event</option>
+          <option value="Family Gathering">Family Gathering</option>
+          <option value="Private Dinner">Private Dinner</option>
+          <option value="Graduation">Graduation</option>
+          <option value="Holiday Party">Holiday Party</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="guestCount">Number of Guests *</label>
+        <select id="guestCount" name="guestCount" required>
+          <option value="">Select guest count...</option>
+          <option value="10-25">10-25 guests</option>
+          <option value="25-50">25-50 guests</option>
+          <option value="50-100">50-100 guests</option>
+          <option value="100-200">100-200 guests</option>
+          <option value="200+">200+ guests</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Menu Items (select all that apply)</label>
+        <div class="checkbox-group">
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Tacos"> Tacos</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Steak"> Steak</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Jackfruit"> Jackfruit</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Sides"> Sides</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Drinks"> Drinks</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Add-ons"> Add-ons</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Combo Platter"> Combo Platter</label>
+          <label class="checkbox-item"><input type="checkbox" name="menuItems" value="Full Catering"> Full Catering</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Additional Details</label>
+        <textarea id="message" name="message" rows="4" placeholder="Any special requests, dietary requirements, or questions?"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Submit Booking Request</button>
+    </form>
+
+    <a href="/" class="back-link">← Back to Home</a>
+  </div>
+
+  <script>
+    // Show success message
+    if (new URLSearchParams(window.location.search).get('success') === 'true') {
+      document.querySelector('.container').innerHTML = `
+        <div class="success">
+          <div class="success-icon">✓</div>
+          <h1>Booking Received!</h1>
+          <p class="subtitle">Thank you for your booking request. We'll contact you within 24 hours to confirm your event details.</p>
+          <a href="/" class="btn" style="display:inline-block;width:auto;padding:16px 40px;text-decoration:none;margin-top:20px;">Back to Home</a>
+        </div>
+      `;
+    }
+
+    // Set min date to today
+    const dateInput = document.getElementById('date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+  </script>
+</body>
+</html>
