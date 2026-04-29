@@ -63,6 +63,7 @@ const BookingPage = () => {
 
     const fields: Record<string, string> = {
       'form-name': 'booking',
+      '_next': '/success.html',
       name: name,
       email: email,
       phone: phone,
