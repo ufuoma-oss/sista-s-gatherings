@@ -4,54 +4,130 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Booking Confirmed - Sista's Cuisine</title>
-  <meta http-equiv="refresh" content="3;url=/">
   <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: #0a0a0a;
       color: #fff;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background: #18181b;
+      padding: 16px 24px;
+      border-bottom: 1px solid #27272a;
+    }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    nav img { height: 40px; }
+    main {
+      flex: 1;
+      display: flex;
       align-items: center;
       justify-content: center;
+      padding: 40px 20px;
     }
     .container {
       text-align: center;
-      padding: 40px 20px;
+      max-width: 500px;
     }
     .icon {
-      width: 80px;
-      height: 80px;
-      background: #166534;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #b45309, #d97706);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 40px;
+      margin: 0 auto 32px;
+      font-size: 50px;
+      box-shadow: 0 10px 40px rgba(180, 83, 9, 0.3);
     }
-    h1 { font-size: 2rem; margin-bottom: 16px; }
-    p { color: #a1a1aa; margin-bottom: 24px; }
-    a {
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #fafafa;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #a1a1aa;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .message {
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .message p {
+      color: #d4d4d8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .message p strong {
+      color: #f59e0b;
+    }
+    .btn {
       display: inline-block;
-      padding: 12px 32px;
-      background: #b45309;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, #b45309, #d97706);
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
       font-weight: 600;
+      font-size: 16px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(180, 83, 9, 0.3);
     }
-    a:hover { background: #92400e; }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(180, 83, 9, 0.4);
+    }
+    .footer-text {
+      margin-top: 40px;
+      color: #71717a;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="icon">✓</div>
-    <h1>Booking Received!</h1>
-    <p>Thank you for your booking request. We'll contact you within 24 hours to confirm your event details.</p>
-    <a href="/">Back to Home</a>
-  </div>
+  <nav>
+    <a href="/">
+      <img src="/logo.png" alt="Sista's Cuisine">
+      Sista's Cuisine
+    </a>
+  </nav>
+  <main>
+    <div class="container">
+      <div class="icon">🎉</div>
+      <h1>You're All Set!</h1>
+      <p class="subtitle">Your booking request has been received and we're excited to be part of your special event!</p>
+      <div class="message">
+        <p>Our team will review your details and reach out within <strong>24 hours</strong> to confirm everything and discuss your menu preferences.</p>
+        <br>
+        <p>In the meantime, if you have any questions, feel free to reach out to us at <strong>sistas.cuisines@gmail.com</strong></p>
+      </div>
+      <a href="/" class="btn">Back to Home</a>
+      <p class="footer-text">We can't wait to cook for you! 🍽️</p>
+    </div>
+  </main>
 </body>
 </html>
