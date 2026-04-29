@@ -5,7 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { menuData } from "@/components/MenuSection";
-import { ArrowLeft, ArrowRight, CalendarDays, Users, UtensilsCrossed, Check, PartyPopper } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Users, UtensilsCrossed, Check, PartyPopper, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -34,6 +34,7 @@ const BookingPage = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleItem = (item: string) => {
     setSelectedItems((prev) =>
@@ -50,8 +51,32 @@ const BookingPage = () => {
     return false;
   };
 
-  const handleSubmit = () => {
-    setSubmitted(true);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    
+    const formData = new FormData();
+    formData.append("form-name", "booking");
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("date", date ? format(date, "MMMM do, yyyy") : "");
+    formData.append("eventType", eventType);
+    formData.append("guestCount", guestCount);
+    formData.append("menuItems", selectedItems.join(", "));
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("There was an error submitting your booking. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -92,6 +117,17 @@ const BookingPage = () => {
     <>
       <Navbar />
       <div className="min-h-screen bg-background pt-16">
+        {/* Hidden form for Netlify */}
+        <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <input type="tel" name="phone" />
+          <input type="text" name="date" />
+          <input type="text" name="eventType" />
+          <input type="text" name="guestCount" />
+          <input type="text" name="menuItems" />
+        </form>
+
         <div className="container mx-auto px-6 py-12 max-w-2xl">
           {/* Progress */}
           <div className="flex items-center justify-center gap-2 mb-12">
@@ -342,10 +378,19 @@ const BookingPage = () => {
               <Button
                 variant="hero"
                 onClick={handleSubmit}
-                disabled={!canNext()}
+                disabled={!canNext() || isSubmitting}
               >
-                Confirm Booking
-                <Check className="w-4 h-4 ml-2" />
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  <>
+                    Confirm Booking
+                    <Check className="w-4 h-4 ml-2" />
+                  </>
+                )}
               </Button>
             )}
           </div>
