@@ -65,12 +65,18 @@ const BookingPage = () => {
     formData.append("menuItems", selectedItems.join(", "));
 
     try {
-      await fetch("/booking.html", {
+      const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
       });
-      setSubmitted(true);
+      
+      // Netlify returns the page HTML on success (even 200 OK with redirect)
+      if (response.ok || response.status === 200) {
+        setSubmitted(true);
+      } else {
+        throw new Error("Form submission failed");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       alert("There was an error submitting your booking. Please try again.");
