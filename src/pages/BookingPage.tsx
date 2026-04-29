@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -33,8 +33,10 @@ const BookingPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Check if we just submitted
+  const justSubmitted = new URLSearchParams(window.location.search).get("submitted") === "true";
 
   const toggleItem = (item: string) => {
     setSelectedItems((prev) =>
@@ -51,49 +53,14 @@ const BookingPage = () => {
     return false;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const encode = (data: Record<string, string>) => {
-      return Object.keys(data)
-        .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&");
-    };
-
-    const formData: Record<string, string> = {
-      "form-name": "booking",
-      name: name,
-      email: email,
-      phone: phone,
-      date: date ? format(date, "MMMM do, yyyy") : "",
-      eventType: eventType,
-      guestCount: guestCount,
-      menuItems: selectedItems.join(", "),
-    };
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(formData),
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        console.error("Form submission failed:", response.status, response.statusText);
-        alert("There was an error submitting your booking. Please try again.");
-      }
-    } catch (error) {
-      console.error("Form submission error:", error);
-      alert("There was an error submitting your booking. Please try again.");
-    } finally {
-      setIsSubmitting(false);
+  // Clean URL after showing success
+  useEffect(() => {
+    if (justSubmitted) {
+      window.history.replaceState({}, "", "/book");
     }
-  };
+  }, [justSubmitted]);
 
-  if (submitted) {
+  if (justSubmitted) {
     return (
       <>
         <Navbar />
@@ -109,13 +76,8 @@ const BookingPage = () => {
             <h2 className="font-display text-3xl font-extrabold text-foreground mb-3">
               Booking Received!
             </h2>
-            <p className="font-body text-muted-foreground mb-2">
-              Thank you, {name}! We'll reach out to confirm your{" "}
-              {eventType.toLowerCase()} on{" "}
-              {date ? format(date, "MMMM do, yyyy") : ""}.
-            </p>
-            <p className="font-body text-sm text-muted-foreground mb-8">
-              {guestCount} guests · {selectedItems.length} items selected
+            <p className="font-body text-muted-foreground mb-8">
+              Thank you for your booking request! We'll reach out to confirm your event details soon.
             </p>
             <Button variant="hero" onClick={() => window.location.href = "/"}>
               Back to Home
@@ -157,26 +119,6 @@ const BookingPage = () => {
               </div>
             ))}
           </div>
-
-          {/* Form wrapper for Netlify */}
-          <form 
-            name="booking" 
-            method="POST" 
-            data-netlify="true" 
-            netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-            hidden
-          >
-            <input type="hidden" name="form-name" value="booking" />
-            <input type="text" name="name" />
-            <input type="email" name="email" />
-            <input type="tel" name="phone" />
-            <input type="text" name="date" />
-            <input type="text" name="eventType" />
-            <input type="text" name="guestCount" />
-            <input type="text" name="menuItems" />
-            <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
-          </form>
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -338,61 +280,114 @@ const BookingPage = () => {
                   <p className="font-body text-muted-foreground mb-8">
                     How can we reach you?
                   </p>
-                  <div className="max-w-sm mx-auto space-y-4">
+
+                  {/* Actual form that submits to Netlify */}
+                  <form
+                    name="booking"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    action="/book?submitted=true"
+                    className="max-w-sm mx-auto space-y-4"
+                    onSubmit={() => setIsSubmitting(true)}
+                  >
+                    <input type="hidden" name="form-name" value="booking" />
+                    <input type="hidden" name="date" value={date ? format(date, "MMMM do, yyyy") : ""} />
+                    <input type="hidden" name="eventType" value={eventType} />
+                    <input type="hidden" name="guestCount" value={guestCount} />
+                    <input type="hidden" name="menuItems" value={selectedItems.join(", ")} />
+                    <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
+
                     <input
                       type="text"
+                      name="name"
                       placeholder="Your Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                      required
                       className="w-full py-3 px-4 rounded-lg border border-border bg-card font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <input
                       type="email"
+                      name="email"
                       placeholder="Email Address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      required
                       className="w-full py-3 px-4 rounded-lg border border-border bg-card font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
                     <input
                       type="tel"
+                      name="phone"
                       placeholder="Phone Number"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
+                      required
                       className="w-full py-3 px-4 rounded-lg border border-border bg-card font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
                     />
-                  </div>
 
-                  {/* Summary */}
-                  <div className="mt-8 bg-secondary/50 rounded-lg p-6 text-left max-w-sm mx-auto">
-                    <h4 className="font-display text-sm uppercase tracking-wider text-primary font-bold mb-3">
-                      Booking Summary
-                    </h4>
-                    <div className="space-y-2 font-body text-sm text-foreground">
-                      <p>📅 {date ? format(date, "MMMM do, yyyy") : ""}</p>
-                      <p>🎉 {eventType}</p>
-                      <p>👥 {guestCount} guests</p>
-                      <p>🍽️ {selectedItems.length} menu items</p>
+                    {/* Summary */}
+                    <div className="mt-8 bg-secondary/50 rounded-lg p-6 text-left">
+                      <h4 className="font-display text-sm uppercase tracking-wider text-primary font-bold mb-3">
+                        Booking Summary
+                      </h4>
+                      <div className="space-y-2 font-body text-sm text-foreground">
+                        <p>📅 {date ? format(date, "MMMM do, yyyy") : ""}</p>
+                        <p>🎉 {eventType}</p>
+                        <p>👥 {guestCount} guests</p>
+                        <p>🍽️ {selectedItems.length} menu items</p>
+                      </div>
                     </div>
-                  </div>
+
+                    {/* Submit Button */}
+                    <div className="flex justify-between mt-8">
+                      <Button
+                        variant="ghost"
+                        type="button"
+                        onClick={() => setStep((s) => s - 1)}
+                        className="font-body"
+                      >
+                        <ArrowLeft className="w-4 h-4 mr-2" />
+                        Back
+                      </Button>
+                      <Button
+                        variant="hero"
+                        type="submit"
+                        disabled={!canNext() || isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Confirm Booking
+                            <Check className="w-4 h-4 ml-2" />
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </form>
                 </div>
               )}
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex justify-between mt-12">
-            <Button
-              variant="ghost"
-              type="button"
-              onClick={() => setStep((s) => s - 1)}
-              disabled={step === 0}
-              className="font-body"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back
-            </Button>
+          {/* Navigation - only show for steps 0-3 */}
+          {step < 4 && (
+            <div className="flex justify-between mt-12">
+              <Button
+                variant="ghost"
+                type="button"
+                onClick={() => setStep((s) => s - 1)}
+                disabled={step === 0}
+                className="font-body"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back
+              </Button>
 
-            {step < 4 ? (
               <Button
                 variant="hero"
                 type="button"
@@ -402,28 +397,8 @@ const BookingPage = () => {
                 Next
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
-            ) : (
-              <Button
-                variant="hero"
-                type="submit"
-                form="booking-form"
-                disabled={!canNext() || isSubmitting}
-                onClick={handleSubmit}
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Submitting...
-                  </>
-                ) : (
-                  <>
-                    Confirm Booking
-                    <Check className="w-4 h-4 ml-2" />
-                  </>
-                )}
-              </Button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       <Footer />
