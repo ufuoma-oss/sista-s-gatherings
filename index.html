@@ -27,6 +27,17 @@
   </head>
 
   <body>
+    <!-- Hidden form for Netlify Forms detection -->
+    <form name="booking" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="date" />
+      <input type="text" name="eventType" />
+      <input type="text" name="guestCount" />
+      <input type="text" name="menuItems" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
