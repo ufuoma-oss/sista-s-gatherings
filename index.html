@@ -28,8 +28,9 @@
 
   <body>
     <!-- Netlify Forms - Hidden form for detection -->
-    <form name="booking" method="POST" data-netlify="true" style="display:none">
+    <form name="booking" method="POST" data-netlify="true" action="/success.html" style="display:none">
       <input type="hidden" name="form-name" value="booking" />
+      <input type="hidden" name="_next" value="/success.html" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="text" name="phone" />
